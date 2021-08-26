@@ -1,0 +1,41 @@
+﻿@page
+@using WebYouToken
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>YooMoney Access</title>
+    <style>
+        body {
+            background-color: #222;
+            display: flex;
+            -o-justify-content: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -ms-align-items: center;
+            -o-align-items: center;
+            -webkit-align-items: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <form action="http://yoomoney.ru/oauth/authorize" method="POST">
+            <input name="client_id" readonly placeholder="ClientId"
+                   value="@Program.ClientId" style="width: 100%; margin-bottom: 5px">
+            <input name="redirect_uri" readonly placeholder="Redirect URI"
+                   value="http://youcode.local/code" style="width: 100%; margin-bottom: 5px">
+            <input name="response_type" type="hidden" value="code">
+            <input name="scope" type="hidden" value="@Program.Scope">
+            <button type="submit">Go</button>
+        </form>
+    </div>
+</body>
+</html>
